@@ -1,0 +1,95 @@
+import { useEffect } from "react";
+import { useUserContext } from '../../contextApi/userContext'
+import { api } from "../../appi/api";
+import { Header } from "../../components/Header";
+import UserCard from "../../components/UserCard";
+import Grid from "@mui/material/Grid";
+import { ButtonSerch } from '../../components/ButtonSearch';
+
+import { Container,  Search, Content } from './styles'
+
+interface UserType {
+  name: String;
+  height: String;
+  mass: String;
+}
+
+export function Home() {
+  const { users, includUer } = useUserContext()
+
+  useEffect(() => {
+    api.get("/people").then((result) => {
+      includUer(result.data.results);
+    });
+  }, []);
+
+ 
+
+  if(users.length < 1){
+    return(
+      <>
+        <Header />
+       <p>Carregando..</p>
+       </>
+      )
+  }
+
+
+  return (
+    <div>
+      <Header />
+      <Search>
+        <ButtonSerch />
+      </Search>
+     
+      <Content
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "4rem",
+          alignItems: "center",
+         
+        }}
+      >
+        <Container>
+          {users.length === 1 ? (
+            <>
+               <Grid container spacing={2}>
+                
+               {users.map(({name, height, mass }: UserType) => (
+                 <Grid item lg={12} md={12} sm={12} xs={12}>
+                   <UserCard
+                     name={name}
+                     height={height}
+                     mass={mass}
+                     
+                   />
+                 </Grid>
+               ))}
+             </Grid>
+
+             <div>
+
+             </div>
+             </>
+          ):(
+            
+             
+          <Grid container spacing={2}>
+            {users.map(({name, height, mass }: UserType) => (
+              <Grid item lg={3} md={4} sm={6} xs={12}>
+                <UserCard
+                  name={name}
+                  height={height}
+                  mass={mass}
+                  
+                />
+              </Grid>
+            ))}
+          </Grid>
+           )}
+        </Container>
+      </Content>
+    </div>
+  );
+}
