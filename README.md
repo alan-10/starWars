@@ -41,6 +41,5 @@ Iniciar Aplicação:
 </li>
 </ol>
 
-
-
+<img src="./src/images/photo1-starwars.png">
 
