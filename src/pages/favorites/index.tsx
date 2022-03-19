@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { api } from "../../appi/api";
 import UserCard from "../../components/UserCard";
-import Grid from "@mui/material/Grid";
-import { Content, Container } from "./styles";
+import { BodyMain } from "../../components/BodyMain";
 
 interface UserType {
   name: String;
@@ -28,34 +27,17 @@ export function Favorites() {
     });
   }, []);
 
- 
   return (
     <div>
       <Header />
 
-      <Content
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "4rem",
-          alignItems: "center",
-        }}
-      >
-        <Container>
-         
-            {user.map(({ name, height, mass }: UserType) => (
-             
-             <div>
-                <UserCard name={name} height={height} mass={mass} />
-             </div>
-                
-              
-            ))}
-
-          
-         
-        </Container>
-      </Content>
+      <BodyMain>
+        {user.map(({ name, height, mass }: UserType) => (
+          <div>
+            <UserCard name={name} height={height} mass={mass} />
+          </div>
+        ))}
+      </BodyMain>
     </div>
   );
 }

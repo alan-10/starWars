@@ -3,7 +3,8 @@ import { Header } from "../../components/Header";
 import Grid from "@mui/material/Grid";
 import { api } from "../../appi/api";
 import { MovieCard } from "../../components/MovieCard";
-import { Container, Content, Title } from "./styles";
+import { BodyMain } from '../../components/BodyMain';
+import {  Title } from "./styles";
 
 interface TypeMovies {
   title: String;
@@ -36,15 +37,7 @@ export function Movies() {
      <Title>
        <h3>Filmes</h3>
      </Title>
-      <Content
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "4rem",
-          alignItems: "center",
-        }}
-      >
-        <Container>
+     <BodyMain>
           <Grid container spacing={2}>
             {movies.map((result: TypeMovies) => (
               <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -56,8 +49,8 @@ export function Movies() {
               </Grid>
             ))}
           </Grid>
-        </Container>
-      </Content>
+          </BodyMain>
+        
     </div>
   );
 }
