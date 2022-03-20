@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { Header } from "../../components/Header";
 import { MovieCard } from "../../components/StartShipCard";
 import { BodyMain } from "../../components/BodyMain";
-import {  Title } from "./styles";
+import { Title, Container } from "./styles";
 
 interface TypeStartShip {
   name: String;
@@ -30,21 +30,22 @@ export function StartShips() {
   }
 
   return (
-    <div>
+    <>
       <Header />
-
-      <Title>
-        <h3>Naves Espaciais</h3>
-      </Title>
-      <BodyMain>
-        <Grid container spacing={2}>
-          {startShip.map(({ model, name }: TypeStartShip) => (
-            <Grid item lg={3} md={4} sm={6} xs={12}>
-              <MovieCard name={name} model={model} />
-            </Grid>
-          ))}
-        </Grid>
-      </BodyMain>
-    </div>
+      <Container>
+        <Title>
+          <h3>Naves Espaciais</h3>
+        </Title>
+        <BodyMain>
+          <Grid container spacing={2}>
+            {startShip.map(({ model, name }: TypeStartShip) => (
+              <Grid item lg={3} md={4} sm={6} xs={12}>
+                <MovieCard name={name} model={model} />
+              </Grid>
+            ))}
+          </Grid>
+        </BodyMain>
+      </Container>
+    </>
   );
 }

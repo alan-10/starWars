@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { api } from "../../appi/api";
 import { MovieCard } from "../../components/MovieCard";
 import { BodyMain } from '../../components/BodyMain';
-import {  Title } from "./styles";
+import {  Title, Container } from "./styles";
 
 interface TypeMovies {
   title: String;
@@ -26,14 +26,18 @@ export function Movies() {
     return(
       <>
         <Header />
-       <p>Carregando..</p>
+       
+          <p>Carregando..</p>
+         
        </>
       )
   }
 
   return (
-    <div>
-      <Header />
+    <>
+     <Header />
+    <Container>
+     
      <Title>
        <h3>Filmes</h3>
      </Title>
@@ -51,6 +55,7 @@ export function Movies() {
           </Grid>
           </BodyMain>
         
-    </div>
+    </Container>
+    </>
   );
 }

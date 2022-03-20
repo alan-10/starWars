@@ -8,12 +8,13 @@ export const Heade = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-  padding: 1.5rem;
-  height: 1.5rem;
-
+  padding: 1rem;
+  height: 70px;
+  box-sizing: border-box;
+  overflow: hidden;
  
   //background-repeat: no-repeat;
-  background-size: 100%;
+  //background-size: 100%;
   background-color:#000;
   > div {
     color: white;
@@ -55,7 +56,7 @@ export const Menu = styled.li`
       background-color: #AD0707;
       color: white;
       border-radius: 4px;
-      width: 10rem;
+      width: 9rem;
       transition: backgound .2s;
 
       &:hover {

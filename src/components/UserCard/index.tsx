@@ -41,7 +41,7 @@ export default function UserCard({ height, name, mass }: UsertoCard) {
 
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} style={{margin:'0 auto'}}>
       <CardActionArea>
         <CardMedia
           component="img"

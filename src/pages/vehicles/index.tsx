@@ -4,7 +4,7 @@ import { api } from "../../appi/api";
 import { Header } from "../../components/Header";
 import { VehiculeCard } from "../../components/VehiculeCard";
 import { BodyMain } from "../../components/BodyMain";
-import {  Title } from "./styles";
+import { Title, Container } from "./styles";
 
 interface TypeVehicule {
   name: String;
@@ -30,22 +30,23 @@ export function Vehicles() {
   }
 
   return (
-    <div>
+    <>
       <Header />
+      <Container>
+        <Title>
+          <h3>Veículos</h3>
+        </Title>
 
-      <Title>
-        <h3>Veículos</h3>
-      </Title>
-
-      <BodyMain>
-        <Grid container spacing={2}>
-          {vehicules.map(({ name, model }: TypeVehicule) => (
-            <Grid item lg={3} md={4} sm={6} xs={12}>
-              <VehiculeCard name={name} model={model} />
-            </Grid>
-          ))}
-        </Grid>
-      </BodyMain>
-    </div>
+        <BodyMain>
+          <Grid container spacing={2}>
+            {vehicules.map(({ name, model }: TypeVehicule) => (
+              <Grid item lg={3} md={4} sm={6} xs={12}>
+                <VehiculeCard name={name} model={model} />
+              </Grid>
+            ))}
+          </Grid>
+        </BodyMain>
+      </Container>
+    </>
   );
 }

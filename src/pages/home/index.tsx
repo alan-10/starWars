@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import { ButtonSerch } from "../../components/ButtonSearch";
 import { BodyMain } from "../../components/BodyMain";
 
-import { Search } from "./styles";
+import { Search, Container } from "./styles";
 
 interface UserType {
   name: String;
@@ -34,34 +34,35 @@ export function Home() {
   }
 
   return (
-    <div>
+    <>
       <Header />
-      <Search>
-        <ButtonSerch />
-      </Search>
-      <BodyMain>
-        {users.length === 1 ? (
-          <>
-            <Grid container spacing={2}>
+      <Container>
+        <Search>
+          <ButtonSerch />
+        </Search>
+        <BodyMain>
+          {users.length === 1 ? (
+            <>
+              <Grid container spacing={2}>
+                {users.map(({ name, height, mass }: UserType) => (
+                  <Grid item lg={12} md={12} sm={12} xs={12}>
+                    <UserCard name={name} height={height} mass={mass} />
+                  </Grid>
+                ))}
+              </Grid>
+
+            </>
+          ) : (
+            <Grid container spacing={2} style={{margin: '0'}}>
               {users.map(({ name, height, mass }: UserType) => (
-                <Grid item lg={12} md={12} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                   <UserCard name={name} height={height} mass={mass} />
                 </Grid>
               ))}
             </Grid>
-
-            <div></div>
-          </>
-        ) : (
-          <Grid container spacing={2}>
-            {users.map(({ name, height, mass }: UserType) => (
-              <Grid item lg={3} md={4} sm={6} xs={12}>
-                <UserCard name={name} height={height} mass={mass} />
-              </Grid>
-            ))}
-          </Grid>
-        )}
-      </BodyMain>
-    </div>
+          )}
+        </BodyMain>
+      </Container>
+    </>
   );
 }

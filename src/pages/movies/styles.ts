@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
-  display: flex;
-  max-width: 1200px;
+  margin: 0 1.2rem;
 `;
 
 export const Title = styled.div`
@@ -14,12 +13,5 @@ export const Title = styled.div`
 `;
 
 
-export const Content = styled.div`
-    display: "flex";
-    justify-content: "center";
-    margin-top: "4rem";
-    align-items: "center,
-
-`;
 
 

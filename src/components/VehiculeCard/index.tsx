@@ -13,7 +13,7 @@ interface TypeVehicule {
 
 export  function VehiculeCard({ name, model }: TypeVehicule) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} style={{margin: '0 auto'}}>
       <CardActionArea>
         <CardMedia
           component="img"

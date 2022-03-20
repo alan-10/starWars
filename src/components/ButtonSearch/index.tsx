@@ -9,6 +9,9 @@ import { styled } from "@mui/material/styles";
 import { darken } from "polished";
 
 const CssTextField = styled(TextField)({
+  "&:hover": {
+    backgroundColor:""
+  },
   "& label.Mui-focused": {
     color: "#AD0707",
   },
@@ -17,6 +20,7 @@ const CssTextField = styled(TextField)({
   },
   "& .MuiOutlinedInput-root .MuiAutocomplete-input": {
     color: "black",
+  
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -24,11 +28,12 @@ const CssTextField = styled(TextField)({
       color: "red",
     },
     "&:hover fieldset": {
-      borderColor: darken(0.2, "#AD0707"),
+      borderColor: darken(0.2, "black"),
     },
     "&.Mui-focused fieldset": {
       borderColor: darken(0.2, "#AD0707"),
     },
+    
   },
 });
 

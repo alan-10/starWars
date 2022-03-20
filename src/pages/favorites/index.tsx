@@ -4,6 +4,8 @@ import { api } from "../../appi/api";
 import UserCard from "../../components/UserCard";
 import { BodyMain } from "../../components/BodyMain";
 
+import { Container } from './styles'
+
 interface UserType {
   name: String;
   height: String;
@@ -28,16 +30,18 @@ export function Favorites() {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
+    <Container>
 
-      <BodyMain>
+      
         {user.map(({ name, height, mass }: UserType) => (
-          <div>
+          <div >
             <UserCard name={name} height={height} mass={mass} />
           </div>
         ))}
-      </BodyMain>
-    </div>
+      
+    </Container>
+    </>
   );
 }

@@ -14,7 +14,7 @@ interface TypeMovieCard {
 
 export  function MovieCard({ name, model  }: TypeMovieCard) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} style={{margin: '0 auto'}}>
       <CardActionArea>
         <CardMedia
           component="img"
