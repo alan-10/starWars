@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
-//export const 
+
+interface SyleProps {
+  select: boolean | null;
+}
 
 export const Heade = styled.header`
   display: flex;
@@ -12,10 +15,10 @@ export const Heade = styled.header`
   height: 70px;
   box-sizing: border-box;
   overflow: hidden;
- 
   //background-repeat: no-repeat;
   //background-size: 100%;
   background-color:#000;
+  
   > div {
     color: white;
   }
@@ -23,6 +26,8 @@ export const Heade = styled.header`
   > a {
     color: white;
   }
+
+
 `;
 
 
@@ -44,7 +49,8 @@ export const GroupButtons = styled.div`
   }
 `;
 
-export const Menu = styled.li`
+export const Menu = styled.li<SyleProps>`
+
   display: flex;
   
   > li {
@@ -65,5 +71,58 @@ export const Menu = styled.li`
     }
   }
 
+ 
 
+  @media(max-width: 600px){
+     display: block; 
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background-color: #000;
+    height: 0px;
+    z-index: 10000;
+    overflow: hidden;
+    background-color: none;
+    
+    transition:  .8s;
+
+    
+    > li {
+     
+      > a{
+        width: 100%;
+        background-color: #000;
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid #AD0707;
+      }
+    }
+
+
+    ${(props: SyleProps) => props.select === true && css`
+
+    /* display: block; */
+    height: calc(100% - 70px);
+    overflow: hidden;
+  
+
+
+`}
+  }
+
+  
+  
 `;
+
+
+export const MenuBurger = styled.button`
+   display: none;
+ 
+  @media(max-width: 600px){
+  
+    display: block; 
+  } 
+`;
+
+
