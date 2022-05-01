@@ -5,6 +5,7 @@ import { Header } from "../../components/Header";
 import { MovieCard } from "../../components/StartShipCard";
 import { BodyMain } from "../../components/BodyMain";
 import { Title, Container } from "./styles";
+import { Yoada } from '../../animations/yoada/Yoda';
 
 interface TypeStartShip {
   name: String;
@@ -24,7 +25,7 @@ export function StartShips() {
     return (
       <>
         <Header />
-        <p>Carregando..</p>
+        <Yoada />
       </>
     );
   }

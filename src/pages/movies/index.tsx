@@ -5,6 +5,7 @@ import { api } from "../../appi/api";
 import { MovieCard } from "../../components/MovieCard";
 import { BodyMain } from '../../components/BodyMain';
 import {  Title, Container } from "./styles";
+import { Yoada } from '../../animations/yoada/Yoda';
 
 interface TypeMovies {
   title: String;
@@ -26,9 +27,7 @@ export function Movies() {
     return(
       <>
         <Header />
-       
-          <p>Carregando..</p>
-         
+        <Yoada />
        </>
       )
   }
@@ -43,8 +42,8 @@ export function Movies() {
      </Title>
      <BodyMain>
           <Grid container spacing={2}>
-            {movies.map((result: TypeMovies) => (
-              <Grid item lg={3} md={4} sm={6} xs={12}>
+            {movies.map((result: TypeMovies, index) => (
+              <Grid item lg={3} md={4} sm={6} xs={12} key={index}>
                 <MovieCard
                   title={result.title}
                   director={result.producer}

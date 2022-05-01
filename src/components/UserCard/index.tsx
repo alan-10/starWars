@@ -23,12 +23,14 @@ export default function UserCard({ height, name, mass }: UsertoCard) {
 
     if(resultlocalStorage){
       return resultlocalStorage;
+    }else {
+      return null
     }
-    return null
+    
   });
 
 
-  function makeFAvorite(name: String, height: String, mass: String, ){ 
+  function makeFavorite(name: String, height: String, mass: String ){ 
     const bodyFAvority = {name, height, mass} ;
     if(isFavorit){
       localStorage.removeItem(`${name}`);
@@ -38,7 +40,6 @@ export default function UserCard({ height, name, mass }: UsertoCard) {
       setIsFavorirte(name)
     }
   }
-
 
   return (
     <Card sx={{ maxWidth: 345 }} style={{margin:'0 auto'}}>
@@ -57,7 +58,7 @@ export default function UserCard({ height, name, mass }: UsertoCard) {
           <Typography variant="body2" color="text.secondary">
             {name} , {height} de altura e pesa {mass} kilos
           </Typography>
-          <IconButton  onClick={() => makeFAvorite(name, height, mass)}
+          <IconButton  onClick={() => makeFavorite(name, height, mass)}
             style={{position:'absolute', marginLeft: '9px',
             right: '2px', bottom: '10px' , padding: '2px', 
             }} 

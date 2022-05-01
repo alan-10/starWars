@@ -5,6 +5,8 @@ import { Header } from "../../components/Header";
 import { VehiculeCard } from "../../components/VehiculeCard";
 import { BodyMain } from "../../components/BodyMain";
 import { Title, Container } from "./styles";
+import { Yoada } from '../../animations/yoada/Yoda';
+
 
 interface TypeVehicule {
   name: String;
@@ -24,7 +26,7 @@ export function Vehicles() {
     return (
       <>
         <Header />
-        <p>Carregando..</p>
+        <Yoada />
       </>
     );
   }

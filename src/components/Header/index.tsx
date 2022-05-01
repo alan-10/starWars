@@ -18,13 +18,14 @@ export function Header(){
       <GroupButtons>
         
           <nav>
-            <MenuBurger onClick={() => toggleMewnu()}>
+            <MenuBurger onClick={() => toggleMewnu()}  select={visibleMenu}>
                 menu
+                <span></span>
             </MenuBurger>
             <Menu select={visibleMenu}>
             <li> <Link  to="/">Personagens</Link> </li>
              <li> <Link to="/movies">Filmes</Link> </li>
-             <li> <Link to="/startShips">Naves Espaciais</Link> </li>
+             <li> <Link to="/startShips">Naves </Link> </li>
              <li> <Link to="/vehicules">Veículos</Link> </li>
             </Menu>
           </nav>

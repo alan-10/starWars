@@ -6,7 +6,7 @@ import UserCard from "../../components/UserCard";
 import Grid from "@mui/material/Grid";
 import { ButtonSerch } from "../../components/ButtonSearch";
 import { BodyMain } from "../../components/BodyMain";
-
+import { Yoada } from '../../animations/yoada/Yoda';
 import { Search, Container } from "./styles";
 
 interface UserType {
@@ -28,7 +28,7 @@ export function Home() {
     return (
       <>
         <Header />
-        <p>Carregando..</p>
+        <Yoada />
       </>
     );
   }
@@ -44,8 +44,8 @@ export function Home() {
           {users.length === 1 ? (
             <>
               <Grid container spacing={2}>
-                {users.map(({ name, height, mass }: UserType) => (
-                  <Grid item lg={12} md={12} sm={12} xs={12}>
+                {users.map(({ name, height, mass }: UserType, index) => (
+                  <Grid item lg={12} md={12} sm={12} xs={12} key={index}>
                     <UserCard name={name} height={height} mass={mass} />
                   </Grid>
                 ))}
